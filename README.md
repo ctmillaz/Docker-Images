@@ -16,6 +16,8 @@ docker exec -it <names> bash
 ```
 
 ------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 ## How to run mySQL in docker
 
@@ -54,3 +56,23 @@ docker ps
 ###  Keep clicking next to pass the opional settings and Finish.
 ###  Once finished you should be able to clickon the new mysql database to the left in the panel and see that it drops down to view other folder which means it connected successfully.
 ### It should let you know it connected succesfully prior to clicking the dropdown.
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+## How to run RabbitMQ in docker
+### https://hub.docker.com/_/rabbitmq/
+### Go down to Supported tags and click on the hyperlink for the 3.*-management.
+### Scroll to bottom of dockerfile next to EXPOSE there are ports.  Remember these ports as we will need them.
+### Go down to Management Plugin on the docker explore rabbitmq page
+### Grab the script
+### $ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -p <port_number> -p <port_number> rabbitmq:3-management
+### These are the current ports you can run
+```
+$ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -p 15671 -p 15672 rabbitmq:3-management
+```
+### If that does work try it without the -p 15672
+```
+$ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -p 15671 rabbitmq:3-management
+```
